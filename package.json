@@ -1,16 +1,18 @@
 {
+  "private": true,
   "name": "api-fetcher-correios",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "format": "prettier --write **/*.{ts,tsx,js,jsx,json,css,scss,html,md}"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "isomorphic-unfetch": "^3.0.0",
     "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "prettier": "^1.16.4"
   }
 }
