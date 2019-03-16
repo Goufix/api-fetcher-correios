@@ -1,1 +1,0 @@
-const estados = require("./estados");
