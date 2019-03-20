@@ -28,9 +28,9 @@ async function main() {
     }
     console.log(
       `Média SEDEX ${stateKey}: `,
-      average(sedex),
+      [average(sedex)],
       `\n Média PAC ${stateKey}: `,
-      average(pac)
+      [average(pac)]
     );
   }
   console.log(`${'='.repeat(15)}DONE${'='.repeat(15)}`);
