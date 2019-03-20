@@ -33,7 +33,7 @@ async function main() {
       average(pac)
     );
   }
-  console.log('='.repeat(15), 'DONE!', '='.repeat(15));
+  console.log(`${'='.repeat(15)}DONE${'='.repeat(15)}`);
 }
 
 main().catch((error) => {
