@@ -6,34 +6,31 @@ const parseCustomFloat = require('./utils/parseCustomFloat');
 
 async function main() {
   for (const [stateKey, cepList] of Object.entries(states)) {
-    let sedex = [];
-    let pac = [];
+    let sedexValues = [];
+    let pacValues = [];
+    
     for (const [index, cep] of cepList.entries()) {
       console.log(
         `Carregando CEP ${index + 1}/${cepList.length} do estado ${stateKey}.`
       );
 
-      const data = await fetchData(
+      const { Servicos: { cServico } } = await fetchData(
         generateUrl({ sCepOrigem: '80020310', sCepDestino: cep })
       );
-      const JSONCutoff = data.Servicos.cServico;
-      console.log(
-        'SEDEX: ',
-        JSONCutoff[0].Valor,
-        '\nPAC: ',
-        JSONCutoff[1].Valor
-      );
-      sedex.push(parseCustomFloat(JSONCutoff[0].Valor[0]));
-      pac.push(parseCustomFloat(JSONCutoff[1].Valor[0]));
+      
+      const sedex = cServico[1].Valor
+      const pac = cServico[1].Valor
+      
+      console.log(`Sedex: ${sedex} | Pac: ${pac}`)
+      sedexValues.push(parseCustomFloat(sedex));
+      pacValues.push(parseCustomFloat(pac));
     }
-    console.log(
-      `Média SEDEX ${stateKey}: `,
-      [average(sedex)],
-      `\n Média PAC ${stateKey}: `,
-      [average(pac)]
-    );
+    
+    console.log('Média Sedex:', average(sedexValues))
+    console.log('Média Pac:', average(pacValues))
   }
-  console.log(`${'='.repeat(15)}DONE${'='.repeat(15)}`);
+  
+  console.log(`${'='.repeat(15)} DONE ${'='.repeat(15)}`);
 }
 
 main().catch((error) => {
