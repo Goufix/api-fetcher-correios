@@ -1,6 +1,6 @@
 # :email: _Correios_ API Fetcher
 
-Calculates the average delivery rate per state
+Calculates the average delivery rate per state.
 
 ## 📖 Other Information
 
