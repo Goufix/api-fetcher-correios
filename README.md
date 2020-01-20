@@ -1,4 +1,4 @@
-# :mail: _Correios_ API Fetcher
+# :email: _Correios_ API Fetcher
 
 Calculates the average delivery rate per state
 
